@@ -2,8 +2,12 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   background-color: white;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 /* Leave Request Section Styles */
@@ -12,7 +16,7 @@
   flex-direction: column;
   gap: 20px;
   padding: 20px;
-  background-color: #F9FAFB;
+  background-color: white;
   border-radius: 10px;
 
 }
@@ -185,7 +189,7 @@
 
 /* Apply/Cancel Leave Styles */
 .apply-cancel-leave {
-  background-color: white;
+  background-color: #F9FAFB;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 24px;
