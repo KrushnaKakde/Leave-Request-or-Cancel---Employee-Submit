@@ -88,29 +88,37 @@
 .year-selector .radio-option input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #0078d4;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #C9CED6; /* gray ring when unchecked */
+  background-color: #ffffff;
   border-radius: 50%;
   margin: 0;
   cursor: pointer;
   position: relative;
+  display: inline-block;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .year-selector .radio-option input[type="radio"]:checked {
-  background-color: #0078d4;
+  border-color: #38AEE0; /* blue ring when checked */
 }
 
 .year-selector .radio-option input[type="radio"]:checked::after {
   content: "";
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: white;
+  width: 10px;  /* inner solid dot */
+  height: 10px;
+  background-color: #38AEE0; /* solid blue center */
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.year-selector .radio-option input[type="radio"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 174, 224, 0.25);
 }
 
 .year-selector .radio-option label {
@@ -178,13 +186,21 @@
 
 .service-arrow {
   position: absolute;
-  top: -11px;
-  right: -11px;
+  top: -5px;
+  right: -5px;
   z-index: 10;
 }
 
 .maternity {
   background-color: #f1f8e9;
+  position: relative;
+}
+
+.maternity-arrow {
+  position: absolute;
+  top: 27px;
+  right: -5px;
+  z-index: 10;
 }
 
 /* Apply/Cancel Leave Styles */
@@ -404,31 +420,37 @@
 .radio-option input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid #0078d4;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #C9CED6; /* gray ring when unchecked */
+  background-color: #ffffff;
   border-radius: 50%;
   margin: 0;
   cursor: pointer;
   position: relative;
-  background-color: white;
+  display: inline-block;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .radio-option input[type="radio"]:checked {
-  background-color: #0078d4;
-  border-color: #0078d4;
+  border-color: #38AEE0; /* blue ring when checked */
 }
 
 .radio-option input[type="radio"]:checked::after {
   content: "";
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: white;
+  width: 10px;  /* inner solid dot */
+  height: 10px;
+  background-color: #38AEE0; /* solid blue center */
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.radio-option input[type="radio"]:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(56, 174, 224, 0.25);
 }
 
 .radio-option label {
@@ -469,7 +491,7 @@
 .form-row.date-range {
   display: grid;
   grid-template-columns: 1fr 1fr max-content; /* From | To | compact Add button */
-  column-gap: 10px; /* EXACT 10px gap between From and To */
+  column-gap: 22px; /* exact gap between From and To */
   align-items: end;
   margin-bottom: 20px;
  }
@@ -484,7 +506,7 @@
   display: flex;
   align-items: center;
   width: 100%; /* remove any fixed widths */
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
 
 /* Give room for the calendar icon inside the field */
@@ -496,7 +518,7 @@
   border-radius: 4px;
   font-size: 14px;
   color: #333;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -547,9 +569,11 @@
 /* Checkbox styles */
 .acknowledgment {
   display: flex;
-  align-items: flex-start;
+  flex-direction: row; /* override .form-row column layout */
+  align-items: center; /* align checkbox + label on the same baseline */
   gap: 10px;
   margin: 20px 0;
+  flex-wrap: nowrap; /* keep on one line */
 }
 
 .acknowledgment input[type="checkbox"] {
@@ -586,53 +610,49 @@
   display: flex;
   gap: 12px;
   align-items: center;
-  width: 33.33vw;
-  height: 56px;
+  width: auto; /* let the inner control size itself */
+  height: auto;
 }
 
 .upload-button {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  padding: 10px 12px;
-  background-color: white;
+  flex: 0 0 auto;
+  display: block;
+  width: 407px;  /* match SVG intrinsic width */
+  height: 56px;  /* match SVG intrinsic height */
+  background-image: url('../svg_comps/file-uplode.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* fit exactly */
+  background-position: center;
+  position: relative; /* allow overlaying button */
+  border: none;
+  border-radius: 8px;
+  padding: 0;
   cursor: pointer;
 }
 
-.choose-file {
-  background-color: #f3f4f6;
-  padding: 6px 12px;
-  border-radius: 3px;
-  font-size: 13px;
-  color: #374151;
-  font-weight: 500;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.upload-button .choose-file,
+.upload-button .no-file {
+  display: none;
 }
 
-.no-file {
-  font-size: 13px;
-  color: #6b7280;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.upload-btn {
-  background-color: #ffffff;
-  color: #106ebe;
-  border: 1px solid #106ebe;
-  border-radius: 4px;
-  padding: 10px 20px;
+.upload-button .upload-btn {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #FFFFFF;
+  color: #1083E8;
+  border: 1px solid #CFE8FF;
+  border-radius: 8px;
+  padding: 8px 12px;
   font-size: 14px;
-  cursor: pointer;
   font-weight: 500;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-left: 12px;
-  margin-right: 0px;
+  z-index: 1; /* sit above the image */
 }
 
-
+.upload-button .upload-btn:hover {
+  border-color: #1083E8;
+}
 
 /* Text input and textarea styles */
 .form-row input[type="text"] {
@@ -759,11 +779,16 @@
 
 /* From Date visual (light gray) to match screenshot */
 .from-date .date-input input {
-  background-color: #f3f4f6;
+  background-color: #ffffff;
   border-color: #e5e7eb;
   color: #4b5563;
 }
 
+.to-date .date-input input {
+  background-color: #dcdbdb;
+  border-color: #e5e7eb;
+  color: #4b5563;
+}
 
 /* Keep calendar icon aligned within input height */
 .calendar-icon {
@@ -787,7 +812,6 @@
   background: #fff;
   margin-left: 10px;
   margin-right: 280px;
-  
 }
 
 .form-row.date-range .add-to-leave-list .add-icon {

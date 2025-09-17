@@ -1,9 +1,9 @@
 .header-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-bottom: 16px;
-  padding: 72px 32px 0 32px;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 24px 32px 0 32px;
 }
 
 .breadcrumb {

@@ -8,9 +8,9 @@ import DocumentIcon from "../svg_comps/DocumentIcon";
 import FileIcon from "../svg_comps/FileIcon";
 import CalendarIcon from "../svg_comps/CalendarIcon";
 import InfoIcon from "../svg_comps/InfoIcon";
-import NoteIcon from "../svg_comps/NoteIcon";
 import UploadIcon from "../svg_comps/UploadIcon";
 import SideArrow from "../svg_comps/SideArrow";
+import PurpleIcon from "../svg_comps/PurpleIcon";
 
 const Avatars = () => {
   // Event handlers for all clickable components
@@ -129,11 +129,11 @@ const Avatars = () => {
               <p className="days">5 days</p>
             </div>
             <div className="leave-type service-2">
-              <SideArrow className="service-arrow" />
               <h4>Service Leave (SL)</h4>
               <p className="days">12 days</p>
             </div>
             <div className="leave-type maternity">
+              <SideArrow className="maternity-arrow" />
               <h4>Maternity Leave</h4>
               <p className="days">182 days</p>
             </div>
@@ -153,7 +153,7 @@ const Avatars = () => {
                 <p>You have <span className="days-highlight">84 Days Leaves</span> for Maternity Leave 2</p>
               </div>
               <div className="info-button">
-                <NoteIcon />
+                <PurpleIcon />
                 <span className="info-text">Note</span>
               </div>
             </div>
