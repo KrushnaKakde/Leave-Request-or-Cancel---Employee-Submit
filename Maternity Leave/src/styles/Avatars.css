@@ -70,7 +70,7 @@
 
 .financial-year span {
   font-size: 14px;
-  color: #666;
+  color: #202020;
 }
 
 .year-selector {
@@ -79,52 +79,54 @@
 }
 
 .year-selector .radio-option {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 6px;
-  position: relative;
+  gap: 8px;
 }
 
 .year-selector .radio-option input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
   width: 22px;
   height: 22px;
-  border: 3px solid #C9CED6; /* gray ring when unchecked */
-  background-color: #ffffff;
-  border-radius: 50%;
   margin: 0;
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
 }
 
-.year-selector .radio-option input[type="radio"]:checked {
-  border-color: #38AEE0; /* blue ring when checked */
+.year-selector .radio-option .radio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  pointer-events: none; /* icons shouldn't capture clicks */
 }
 
-.year-selector .radio-option input[type="radio"]:checked::after {
-  content: "";
-  position: absolute;
-  width: 10px;  /* inner solid dot */
-  height: 10px;
-  background-color: #38AEE0; /* solid blue center */
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+.year-selector .radio-option .radio-icon .icon-checked { display: none; }
+.year-selector .radio-option .radio-icon .icon-unchecked { display: inline-block; }
 
-.year-selector .radio-option input[type="radio"]:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(56, 174, 224, 0.25);
-}
+.year-selector .radio-option input[type="radio"]:checked + .radio-icon .icon-checked { display: inline-block; }
+.year-selector .radio-option input[type="radio"]:checked + .radio-icon .icon-unchecked { display: none; }
 
 .year-selector .radio-option label {
-  font-size: 14px;
-  color: #333;
-  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  line-height: 22px;
+  margin: 0;
+  color: #9CA3AF; /* default gray when not selected */
+}
+
+.year-selector .radio-option input[type="radio"]:checked ~ label {
+  color: #111827; /* black when selected */
+  font-weight: 600; /* optional emphasis like screenshot */
+}
+
+.year-selector .radio-option {
+  align-items: center;
 }
 
 .leave-types-container {
@@ -411,55 +413,61 @@
 }
 
 .radio-option {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
 }
 
 .radio-option input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
+  position: absolute;
+  opacity: 0;
   width: 22px;
   height: 22px;
-  border: 3px solid #C9CED6; /* gray ring when unchecked */
-  background-color: #ffffff;
-  border-radius: 50%;
   margin: 0;
-  cursor: pointer;
-  position: relative;
-  display: inline-block;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
 }
 
-.radio-option input[type="radio"]:checked {
-  border-color: #38AEE0; /* blue ring when checked */
+.radio-option .radio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  pointer-events: none; /* icons shouldn't capture clicks */
 }
 
-.radio-option input[type="radio"]:checked::after {
-  content: "";
-  position: absolute;
-  width: 10px;  /* inner solid dot */
-  height: 10px;
-  background-color: #38AEE0; /* solid blue center */
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+.radio-option .radio-icon .icon-checked { display: none; }
+.radio-option .radio-icon .icon-unchecked { display: inline-block; }
 
-.radio-option input[type="radio"]:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(56, 174, 224, 0.25);
-}
+.radio-option input[type="radio"]:checked + .radio-icon .icon-checked { display: inline-block; }
+.radio-option input[type="radio"]:checked + .radio-icon .icon-unchecked { display: none; }
 
 .radio-option label {
-  font-size: 14px;
-  color: #333;
-  font-weight: 400;
-  cursor: pointer;
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-flex;          /* allow vertical centering */
+  align-items: center;           /* center text to icon height */
+  line-height: 22px;             /* match radio icon height */
+  margin: 0;                     /* remove extra margins */
+}
+
+.radio-option {
+  align-items: center;
+}
+
+/* Fine-tune alignment for radios inside the two-column pair row */
+.form-row-pair .radio-option {
+  align-items: center; /* ensure container centers icon + text */
+}
+
+.form-row-pair .radio-option label {
+  display: inline-flex;      /* allow vertical centering */
+  align-items: center;       /* center text to icon */
+  line-height: 22px;         /* match 22px radio icon height */
+  margin: 0;                 /* remove extra margins */
+  transform: translateY(1px); /* nudge label 1px down to align baseline */
 }
 
 /* Three column layout for Leave Type, Sub Categories, Expected Delivery Date */
@@ -531,6 +539,8 @@
   color: #6b7280;
   font-size: 16px;
   pointer-events: none;
+  width: 16px;   /* for <img> fallback */
+  height: 17px;
 }
 
 /* Select dropdown styles */
@@ -556,13 +566,14 @@
 }
 
 .select-wrapper::after {
-  content: "▼";
+  content: none;
+}
+
+.select-wrapper .select-caret {
   position: absolute;
-  right: 12px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #6b7280;
-  font-size: 12px;
   pointer-events: none;
 }
 
@@ -576,21 +587,54 @@
   flex-wrap: nowrap; /* keep on one line */
 }
 
+.acknowledgment .checkbox-wrapper {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: #ffffff; /* white background behind the svg */
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.acknowledgment .checkbox-wrapper input[type="checkbox"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;               /* keep accessible, hide native */
+  cursor: pointer;
+  margin: 0;
+}
+
+.acknowledgment .checkbox-wrapper .checkbox-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;            /* show only when checked */
+}
+
+.acknowledgment .checkbox-wrapper input[type="checkbox"]:checked + .checkbox-svg {
+  display: block;
+}
+
 .acknowledgment input[type="checkbox"] {
   width: 18px;
   height: 18px;
   margin-top: 2px;
-  accent-color: #0078d4;
+  accent-color: #42A5F5; /* brand blue */
   cursor: pointer;
 }
 
 .acknowledgment label {
-  font-size: 14px;
-  color: #333;
-  font-weight: 400;
-  cursor: pointer;
-  line-height: 1.4;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: inline-flex;          /* allow vertical centering */
+  align-items: center;           /* center text to checkbox height */
+  line-height: 18px;             /* match checkbox height */
+  margin: 0;                     /* remove extra margins */
+}
+
+.acknowledgment {
+  align-items: center;
 }
 
 /* File upload styles */
@@ -606,6 +650,11 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.proof-section label .required-star {
+  color: #e53935; /* red */
+  margin-left: 2px;
+}
+
 .file-upload {
   display: flex;
   gap: 12px;
@@ -617,37 +666,72 @@
 .upload-button {
   flex: 0 0 auto;
   display: block;
-  width: 407px;  /* match SVG intrinsic width */
-  height: 56px;  /* match SVG intrinsic height */
-  background-image: url('../svg_comps/file-uplode.svg');
+  width: 415px;  /* border SVG intrinsic width */
+  height: 64px;  /* border SVG intrinsic height */
+  background-color: #ffffff; /* white fill behind border */
+  background-image: url('../svg_comps/uplodefileborder.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%; /* fit exactly */
   background-position: center;
-  position: relative; /* allow overlaying button */
+  position: relative; /* allow overlaying content */
   border: none;
   border-radius: 8px;
   padding: 0;
   cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.upload-button .choose-file,
+.upload-button::before {
+  content: "";
+  position: absolute;
+  left: 16px;              /* spacing from border */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;             /* slightly larger like mock */
+  height: 36px;
+  background-image: url('/uplode.png'); /* served from public/ */
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+  background-color: #F3F5F7; /* light gray circle backdrop */
+}
+
+.upload-button .choose-file {
+  position: absolute;
+  left: 72px;             /* to the right of the image */
+  top: 12px;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;       /* bold */
+  color: #111827;         /* near black */
+}
+
 .upload-button .no-file {
-  display: none;
+  position: absolute;
+  left: 72px;
+  top: 36px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #98A2B3;         /* muted gray */
 }
 
 .upload-button .upload-btn {
   position: absolute;
-  right: 12px;
+  right: 16px;
   top: 50%;
   transform: translateY(-50%);
   background-color: #FFFFFF;
-  color: #1083E8;
-  border: 1px solid #CFE8FF;
+  color: #1083E8;         /* blue text */
+  border: 1.5px solid #42A5F5; /* brand blue border */
   border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 14px;
-  font-weight: 500;
-  z-index: 1; /* sit above the image */
+  padding: 8px 14px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;        /* bold like mock */
+  z-index: 1;              /* above background */
 }
 
 .upload-button .upload-btn:hover {

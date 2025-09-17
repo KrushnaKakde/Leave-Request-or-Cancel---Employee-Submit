@@ -11,6 +11,11 @@ import InfoIcon from "../svg_comps/InfoIcon";
 import UploadIcon from "../svg_comps/UploadIcon";
 import SideArrow from "../svg_comps/SideArrow";
 import PurpleIcon from "../svg_comps/PurpleIcon";
+import RadioChecked from "../svg_comps/RadioChecked";
+import RadioUnchecked from "../svg_comps/RadioUnchecked";
+import DropdownIcon from "../svg_comps/DropdownIcon";
+import CalendarDropIcon from "../svg_comps/CalendarDropIcon";
+import CheckboxIcon from "../svg_comps/CheckboxIcon";
 
 const Avatars = () => {
   // Event handlers for all clickable components
@@ -97,10 +102,18 @@ const Avatars = () => {
               <div className="year-selector">
                 <div className="radio-option">
                   <input type="radio" name="financialYear" id="year2025" defaultChecked />
+                  <span className="radio-icon">
+                    <RadioChecked className="icon-checked" />
+                    <RadioUnchecked className="icon-unchecked" />
+                  </span>
                   <label htmlFor="year2025">2025</label>
                 </div>
                 <div className="radio-option">
                   <input type="radio" name="financialYear" id="year2024" />
+                  <span className="radio-icon">
+                    <RadioChecked className="icon-checked" />
+                    <RadioUnchecked className="icon-unchecked" />
+                  </span>
                   <label htmlFor="year2024">2024</label>
                 </div>
               </div>
@@ -166,10 +179,18 @@ const Avatars = () => {
                 <div className="radio-options">
                   <div className="radio-option selected">
                     <input type="radio" name="requestType" id="applyLeave" defaultChecked />
+                    <span className="radio-icon">
+                      <RadioChecked className="icon-checked" />
+                      <RadioUnchecked className="icon-unchecked" />
+                    </span>
                     <label htmlFor="applyLeave">Apply Leave</label>
                   </div>
                   <div className="radio-option">
                     <input type="radio" name="requestType" id="cancelLeave" />
+                    <span className="radio-icon">
+                      <RadioChecked className="icon-checked" />
+                      <RadioUnchecked className="icon-unchecked" />
+                    </span>
                     <label htmlFor="cancelLeave">Cancel Leave</label>
                   </div>
                 </div>
@@ -180,14 +201,26 @@ const Avatars = () => {
                 <div className="radio-options">
                   <div className="radio-option selected">
                     <input type="radio" name="dayType" id="fullDay" defaultChecked />
+                    <span className="radio-icon">
+                      <RadioChecked className="icon-checked" />
+                      <RadioUnchecked className="icon-unchecked" />
+                    </span>
                     <label htmlFor="fullDay">Full day (s)</label>
                   </div>
                   <div className="radio-option">
                     <input type="radio" name="dayType" id="firstHalf" />
+                    <span className="radio-icon">
+                      <RadioChecked className="icon-checked" />
+                      <RadioUnchecked className="icon-unchecked" />
+                    </span>
                     <label htmlFor="firstHalf">First Half</label>
                   </div>
                   <div className="radio-option">
                     <input type="radio" name="dayType" id="secondHalf" />
+                    <span className="radio-icon">
+                      <RadioChecked className="icon-checked" />
+                      <RadioUnchecked className="icon-unchecked" />
+                    </span>
                     <label htmlFor="secondHalf">Second Half</label>
                   </div>
                 </div>
@@ -201,6 +234,7 @@ const Avatars = () => {
                   <select>
                     <option>Maternity Leave</option>
                   </select>
+                  <DropdownIcon className="select-caret" />
                 </div>
               </div>
               <div>
@@ -209,6 +243,7 @@ const Avatars = () => {
                   <select>
                     <option>Leave for Commissioning Mother</option>
                   </select>
+                  <DropdownIcon className="select-caret" />
                 </div>
               </div>
               <div>
@@ -217,6 +252,7 @@ const Avatars = () => {
                   <select>
                     <option>08-Aug-2025</option>
                   </select>
+                  <DropdownIcon className="select-caret" />
                 </div>
               </div>
             </div>
@@ -226,14 +262,14 @@ const Avatars = () => {
                 <label>From Date</label>
                 <div className="date-input">
                   <input type="text" value="08-Aug-2025" readOnly />
-                  <BsCalendar className="calendar-icon" />
+                  <CalendarDropIcon className="calendar-icon" />
                 </div>
               </div>
               <div className="date-field to-date">
                 <label>To Date</label>
                 <div className="date-input">
                   <input type="text" value="08-Aug-2025" readOnly />
-                  <BsCalendar className="calendar-icon" />
+                  <CalendarDropIcon className="calendar-icon" />
                 </div>
               </div>
               <div className="add-to-leave-list">
@@ -243,16 +279,22 @@ const Avatars = () => {
             </div>
             
             <div className="form-row acknowledgment">
-              <input type="checkbox" id="acknowledgment" defaultChecked />
+              <span className="checkbox-wrapper">
+                <input type="checkbox" id="acknowledgment" defaultChecked />
+                <CheckboxIcon className="checkbox-svg" />
+              </span>
               <label htmlFor="acknowledgment">I acknowledge that this OOO request is for official purpose only</label>
             </div>
             
             <div className="form-row proof-section">
-              <label>Proof of Maternity Leave*</label>
+              <label>
+                Proof of Maternity Leave
+                <span className="required-star">*</span>
+              </label>
               <div className="file-upload">
                 <div className="upload-button">
                   <span className="choose-file">Choose File</span>
-                  <span className="no-file">No file chosen</span>
+                  <span className="no-file">PDF format • Max. 4MB</span>
                   <button className="upload-btn">Upload</button>
                 </div>
                 
