@@ -10,12 +10,15 @@ import CalendarIcon from "../svg_comps/CalendarIcon";
 import InfoIcon from "../svg_comps/InfoIcon";
 import UploadIcon from "../svg_comps/UploadIcon";
 import SideArrow from "../svg_comps/SideArrow";
-import PurpleIcon from "../svg_comps/PurpleIcon";
 import RadioChecked from "../svg_comps/RadioChecked";
 import RadioUnchecked from "../svg_comps/RadioUnchecked";
 import DropdownIcon from "../svg_comps/DropdownIcon";
 import CalendarDropIcon from "../svg_comps/CalendarDropIcon";
 import CheckboxIcon from "../svg_comps/CheckboxIcon";
+import UploadButtonIcon from "../svg_comps/UploadButtonIcon";
+import CancelButtonIcon from "../svg_comps/CancelButtonIcon";
+import SubmitButtonIcon from "../svg_comps/SubmitButtonIcon";
+import NoteIcon from "../svg_comps/NoteIcon";
 
 const Avatars = () => {
   // Event handlers for all clickable components
@@ -166,7 +169,7 @@ const Avatars = () => {
                 <p>You have <span className="days-highlight">84 Days Leaves</span> for Maternity Leave 2</p>
               </div>
               <div className="info-button">
-                <PurpleIcon />
+                <NoteIcon />
                 <span className="info-text">Note</span>
               </div>
             </div>
@@ -295,7 +298,7 @@ const Avatars = () => {
                 <div className="upload-button">
                   <span className="choose-file">Choose File</span>
                   <span className="no-file">PDF format • Max. 4MB</span>
-                  <button className="upload-btn">Upload</button>
+                  <UploadButtonIcon className="upload-btn" />
                 </div>
                 
               </div>
@@ -312,8 +315,8 @@ const Avatars = () => {
             </div>
             
             <div className="form-actions">
-              <button className="cancel-btn">Cancel</button>
-              <button className="submit-btn">Submit</button>
+              <CancelButtonIcon className="cancel-btn" />
+              <SubmitButtonIcon className="submit-btn" />
             </div>
             
             <div className="view-policies">
