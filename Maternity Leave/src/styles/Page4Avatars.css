@@ -1,0 +1,50 @@
+/* Page4Avatars.css - Separate CSS for Page4 only */
+
+/* Three column layout for Leave Type, Sub Categories - Page4 specific */
+.form-row.three-column {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  max-width: 900px; /* Reduced width - smaller than before */
+  width: fit-content; /* Don't stretch to full width */
+}
+
+.form-row.three-column > div {
+  flex: 1;
+  min-width: 463px; /* Smaller minimum width */
+  max-width: 250px; /* Smaller maximum width */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row.three-column label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.date-input input {
+  background: #ffffff !important; /* Changed to white */
+}
+
+
+
+/* Institution input - can be targeted separately */
+.institution-input input {
+  background: #FFFFFF !important; /* Changed to white */
+}
+
+/* Course input - change to white background */
+.course-input input {
+  background: #FFFFFF !important;
+}
+
+/* To Date input - change to light gray background */
+.to-date-input input {
+  background: #F5F5F5 !important;
+}

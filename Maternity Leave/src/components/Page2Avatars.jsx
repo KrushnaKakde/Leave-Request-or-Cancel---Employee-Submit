@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Avatars.css";
+import "../styles/Page2Avatars.css";
 import Header from "./Header";
 import EmployeeProfile from "./EmployeeProfile";
 import { IoAddCircleOutline } from "react-icons/io5";
@@ -19,7 +19,7 @@ import CancelButtonIcon from "../svg_comps/CancelButtonIcon";
 import SubmitButtonIcon from "../svg_comps/SubmitButtonIcon";
 import NoteIcon from "../svg_comps/NoteIcon";
 
-const Avatars = () => {
+const Page2Avatars = () => {
   // Event handlers for all clickable components
   const handleBackClick = () => {
     console.log("Back button clicked");
@@ -95,7 +95,7 @@ const Avatars = () => {
         onLocationClick={handleLocationClick}
         onManagerClick={handleManagerClick}
       />
-      
+
       <div className="leave-request-section">
         <div className="leave-balance-overview">
           <div className="leave-balance-header">
@@ -126,7 +126,7 @@ const Avatars = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="leave-types-container">
             <div className="leave-type casual">
               <h4>Casual Leave (CL)</h4>
@@ -159,7 +159,7 @@ const Avatars = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="apply-cancel-leave">
           <div className="apply-cancel-header">
             <div className="apply-cancel-title">
@@ -178,7 +178,7 @@ const Avatars = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="leave-form">
             <div className="form-row-pair">
               <div className="form-row request-type">
@@ -202,7 +202,7 @@ const Avatars = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="form-row day-type">
                 <label>Day Type</label>
                 <div className="radio-options">
@@ -233,7 +233,7 @@ const Avatars = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="form-row three-column">
               <div>
                 <label>Leave Type</label>
@@ -248,7 +248,7 @@ const Avatars = () => {
                 <label>Sub Categories</label>
                 <div className="select-wrapper">
                   <select>
-                    <option>Maternity Leave1</option>
+                    <option>Maternity Leave2</option>
                   </select>
                   <DropdownIcon className="select-caret" />
                 </div>
@@ -263,7 +263,7 @@ const Avatars = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="form-row date-range">
               <div className="date-field from-date">
                 <label>From Date</label>
@@ -284,7 +284,7 @@ const Avatars = () => {
                 <span>Add to Leave list</span>
               </div>
             </div>
-            
+
             <div className="form-row acknowledgment">
               <span className="checkbox-wrapper">
                 <input type="checkbox" id="acknowledgment" defaultChecked />
@@ -292,7 +292,7 @@ const Avatars = () => {
               </span>
               <label htmlFor="acknowledgment">I acknowledge that this OOO request is for official purpose only</label>
             </div>
-            
+
             <div className="form-row proof-section">
               <label>
                 Proof of Maternity Leave
@@ -304,25 +304,25 @@ const Avatars = () => {
                   <span className="no-file">PDF format • Max. 4MB</span>
                   <UploadButtonIcon className="upload-btn" />
                 </div>
-                
+
               </div>
             </div>
-            
+
             <div className="form-row reason">
               <label>Reason for Leave</label>
               <input type="text" value="Due to Emergency Taking Parental Maternity Leave" readOnly />
             </div>
-            
+
             <div className="form-row comment">
               <label>Comment</label>
               <textarea placeholder="I have an important personal matter to attend at my home town."></textarea>
             </div>
-            
+
             <div className="form-actions">
               <CancelButtonIcon className="cancel-btn" />
               <SubmitButtonIcon className="submit-btn" onClick={handleSubmitClick} />
             </div>
-            
+
             <div className="view-policies">
               <FileIcon className="policy-icon" />
               <span>View Policies</span>
@@ -334,4 +334,4 @@ const Avatars = () => {
   );
 };
 
-export default Avatars;
+export default Page2Avatars;

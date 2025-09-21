@@ -1,5 +1,5 @@
-import React from "react";
-import "../styles/Avatars.css";
+import React, { useState } from "react";
+import "../styles/Page3Avatars.css";
 import Header from "./Header";
 import EmployeeProfile from "./EmployeeProfile";
 import { IoAddCircleOutline } from "react-icons/io5";
@@ -14,12 +14,12 @@ import RadioUnchecked from "../svg_comps/RadioUnchecked";
 import DropdownIcon from "../svg_comps/DropdownIcon";
 import CalendarDropIcon from "../svg_comps/CalendarDropIcon";
 import CheckboxIcon from "../svg_comps/CheckboxIcon";
-import UploadButtonIcon from "../svg_comps/UploadButtonIcon";
 import CancelButtonIcon from "../svg_comps/CancelButtonIcon";
 import SubmitButtonIcon from "../svg_comps/SubmitButtonIcon";
 import NoteIcon from "../svg_comps/NoteIcon";
+import NoteText from "../svg_comps/NoteText";
 
-const Avatars = () => {
+const Page3Avatars = () => {
   // Event handlers for all clickable components
   const handleBackClick = () => {
     console.log("Back button clicked");
@@ -76,6 +76,8 @@ const Avatars = () => {
     isOnline: true,
   };
 
+  const [showNoteText, setShowNoteText] = useState(false);
+
   return (
     <div className="avatars-container">
       <Header
@@ -95,7 +97,7 @@ const Avatars = () => {
         onLocationClick={handleLocationClick}
         onManagerClick={handleManagerClick}
       />
-      
+
       <div className="leave-request-section">
         <div className="leave-balance-overview">
           <div className="leave-balance-header">
@@ -126,7 +128,7 @@ const Avatars = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="leave-types-container">
             <div className="leave-type casual">
               <h4>Casual Leave (CL)</h4>
@@ -159,7 +161,7 @@ const Avatars = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="apply-cancel-leave">
           <div className="apply-cancel-header">
             <div className="apply-cancel-title">
@@ -173,12 +175,12 @@ const Avatars = () => {
                 <p>You have <span className="days-highlight">84 Days Leaves</span> for Maternity Leave 2</p>
               </div>
               <div className="info-button">
-                <NoteIcon />
+                <NoteIcon onClick={() => setShowNoteText(true)} />
                 <span className="info-text">Note</span>
               </div>
             </div>
           </div>
-          
+
           <div className="leave-form">
             <div className="form-row-pair">
               <div className="form-row request-type">
@@ -202,7 +204,7 @@ const Avatars = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="form-row day-type">
                 <label>Day Type</label>
                 <div className="radio-options">
@@ -233,7 +235,7 @@ const Avatars = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="form-row three-column">
               <div>
                 <label>Leave Type</label>
@@ -248,22 +250,13 @@ const Avatars = () => {
                 <label>Sub Categories</label>
                 <div className="select-wrapper">
                   <select>
-                    <option>Maternity Leave1</option>
-                  </select>
-                  <DropdownIcon className="select-caret" />
-                </div>
-              </div>
-              <div>
-                <label>Expected Delivery Date</label>
-                <div className="select-wrapper">
-                  <select>
-                    <option>08-Aug-2025</option>
+                    <option>Select Sub Category</option>
                   </select>
                   <DropdownIcon className="select-caret" />
                 </div>
               </div>
             </div>
-            
+
             <div className="form-row date-range">
               <div className="date-field from-date">
                 <label>From Date</label>
@@ -284,7 +277,7 @@ const Avatars = () => {
                 <span>Add to Leave list</span>
               </div>
             </div>
-            
+
             <div className="form-row acknowledgment">
               <span className="checkbox-wrapper">
                 <input type="checkbox" id="acknowledgment" defaultChecked />
@@ -292,37 +285,22 @@ const Avatars = () => {
               </span>
               <label htmlFor="acknowledgment">I acknowledge that this OOO request is for official purpose only</label>
             </div>
-            
-            <div className="form-row proof-section">
-              <label>
-                Proof of Maternity Leave
-                <span className="required-star">*</span>
-              </label>
-              <div className="file-upload">
-                <div className="upload-button">
-                  <span className="choose-file">Choose File</span>
-                  <span className="no-file">PDF format • Max. 4MB</span>
-                  <UploadButtonIcon className="upload-btn" />
-                </div>
-                
-              </div>
-            </div>
-            
+
             <div className="form-row reason">
               <label>Reason for Leave</label>
               <input type="text" value="Due to Emergency Taking Parental Maternity Leave" readOnly />
             </div>
-            
+
             <div className="form-row comment">
               <label>Comment</label>
               <textarea placeholder="I have an important personal matter to attend at my home town."></textarea>
             </div>
-            
+
             <div className="form-actions">
               <CancelButtonIcon className="cancel-btn" />
               <SubmitButtonIcon className="submit-btn" onClick={handleSubmitClick} />
             </div>
-            
+
             <div className="view-policies">
               <FileIcon className="policy-icon" />
               <span>View Policies</span>
@@ -330,8 +308,23 @@ const Avatars = () => {
           </div>
         </div>
       </div>
+
+      {/* Note Text Popup */}
+      {showNoteText && (
+        <div className="note-text-popup">
+          <div className="note-text-content">
+            <NoteText />
+            <button
+              className="close-note-button"
+              onClick={() => setShowNoteText(false)}
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
-export default Avatars;
+export default Page3Avatars;

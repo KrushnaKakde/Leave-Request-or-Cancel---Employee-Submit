@@ -1,10 +1,14 @@
 import React from "react";
+import "../App.css";
+import Navbar from "./Navbar.jsx";
+import Page3Avatars from "./Page3Avatars.jsx";
 
 const Page3 = () => {
   return (
-    <div>
-      <h1>This is my website 3</h1>
-    </div>
+    <>
+      <Navbar />
+      <Page3Avatars />
+    </>
   );
 };
 
