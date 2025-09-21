@@ -3,7 +3,6 @@ import "../styles/Avatars.css";
 import Header from "./Header";
 import EmployeeProfile from "./EmployeeProfile";
 import { IoAddCircleOutline } from "react-icons/io5";
-import { BsCalendar } from "react-icons/bs";
 import DocumentIcon from "../svg_comps/DocumentIcon";
 import FileIcon from "../svg_comps/FileIcon";
 import CalendarIcon from "../svg_comps/CalendarIcon";
@@ -56,6 +55,11 @@ const Avatars = () => {
 
   const handleManagerClick = () => {
     console.log("Manager clicked");
+  };
+
+  const handleSubmitClick = () => {
+    console.log("Submit button clicked - routing will be added after installing dependencies");
+    alert("Submit clicked! Please install react-router-dom first: npm install");
   };
 
   // Employee data object
@@ -316,7 +320,7 @@ const Avatars = () => {
             
             <div className="form-actions">
               <CancelButtonIcon className="cancel-btn" />
-              <SubmitButtonIcon className="submit-btn" />
+              <SubmitButtonIcon className="submit-btn" onClick={handleSubmitClick} />
             </div>
             
             <div className="view-policies">

@@ -15,6 +15,14 @@ export default defineConfig({
     port: 5173,
     open: true,
     hmr: { overlay: true },
+    historyApiFallback: true,
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
   resolve: {
     alias: {
