@@ -79,7 +79,7 @@ const Page3Avatars = () => {
   const [showNoteText, setShowNoteText] = useState(false);
 
   return (
-    <div className="avatars-container">
+    <div className="avatars-container page3">
       <Header
         breadcrumb="My Workspace > Day Care Support Reimbursement"
         title="Leave Request or Cancel - Employee Submit "

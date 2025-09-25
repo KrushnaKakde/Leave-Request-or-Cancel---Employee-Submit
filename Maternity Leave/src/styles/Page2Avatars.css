@@ -780,13 +780,13 @@
   border: 1px solid #d1d5db;
   border-radius: 4px;
   font-size: 14px;
-  color: #000000;
-  background-color: white;
+  color: #333;
+  background-color: #F5F5F5;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form-row textarea {
-  width: 1320px;
+  width: 100%;
   padding: 10px 12px;
   border: 1px solid #d1d5db;
   border-radius: 4px;
@@ -797,6 +797,10 @@
   resize: none;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-row.reason input {
+  background-color: white;
 }
 
 .form-row.reason label,

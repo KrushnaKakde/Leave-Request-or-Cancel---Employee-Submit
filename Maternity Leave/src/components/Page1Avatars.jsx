@@ -77,7 +77,7 @@ const Page1Avatars = () => {
   };
 
   return (
-    <div className="avatars-container">
+    <div className="avatars-container page1">
       <Header
         breadcrumb="My Workspace > Day Care Support Reimbursement"
         title="Leave Request or Cancel - Employee Submit "

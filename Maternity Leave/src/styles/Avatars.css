@@ -530,7 +530,9 @@
   align-items: center;
   width: 100%; /* remove any fixed widths */
   background-color: rgb(255, 255, 255);
+  
 }
+
 
 .to-date-input {
   position: relative;
@@ -550,7 +552,7 @@
   color: #4b5563;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   position: relative;
-  right: 4px;
+  
 }
 
 /* Give room for the calendar icon inside the field */
@@ -866,8 +868,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.submit-btn:hover {
-}
+
 
 /* View policies */
 .view-policies {
@@ -923,7 +924,7 @@
   border-color: #e5e7eb;
   color: #4b5563;
   position: relative;
-  left: -5px;
+  left: 0;
 }
 
 /* Keep calendar icon aligned within input height */
