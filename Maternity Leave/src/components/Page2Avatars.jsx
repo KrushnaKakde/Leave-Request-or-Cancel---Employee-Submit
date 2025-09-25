@@ -274,7 +274,7 @@ const Page2Avatars = () => {
               </div>
               <div className="date-field to-date">
                 <label>To Date</label>
-                <div className="date-input">
+                <div className="to-date-input">
                   <input type="text" value="08-Aug-2025" readOnly />
                   <CalendarDropIcon className="calendar-icon" />
                 </div>
