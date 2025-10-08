@@ -1,0 +1,972 @@
+.avatars-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Leave Request Section Styles */
+.leave-request-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+
+}
+
+/* Leave Balance Overview Styles */
+.leave-balance-overview {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.leave-balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.leave-balance-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.leave-balance-title h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.leave-icon {
+  color: #52C41A; /* Green color to match calendar design */
+  font-size: 18px;
+}
+
+.info-icon {
+  color: #9CA3AF; /* Gray color to match original SVG */
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.financial-year {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #a3a3a3;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.financial-year span {
+  font-size: 14px;
+  color: #202020;
+}
+
+.year-selector {
+  display: flex;
+  gap: 12px;
+}
+
+.year-selector .radio-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.year-selector .radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+}
+
+.year-selector .radio-option .radio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  pointer-events: none; /* icons shouldn't capture clicks */
+}
+
+.year-selector .radio-option .radio-icon .icon-checked { display: none; }
+.year-selector .radio-option .radio-icon .icon-unchecked { display: inline-block; }
+
+.year-selector .radio-option input[type="radio"]:checked + .radio-icon .icon-checked { display: inline-block; }
+.year-selector .radio-option input[type="radio"]:checked + .radio-icon .icon-unchecked { display: none; }
+
+.year-selector .radio-option label {
+  display: inline-flex;
+  align-items: center;
+  line-height: 22px;
+  margin: 0;
+  color: #4B5563; /* default gray when not selected */
+  font-weight: normal; /* remove boldness for non-selected */
+}
+
+.year-selector .radio-option input[type="radio"]:checked ~ label {
+  color: #111827; /* black when selected */
+  font-weight: 600; /* optional emphasis like screenshot */
+}
+
+.year-selector .radio-option {
+  align-items: center;
+}
+
+.leave-types-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.leave-type {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.leave-type h4 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.leave-type .days {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  color: #000;
+}
+
+.casual {
+  background-color: #EFF6FF;
+}
+
+.service {
+  background-color: #FAF5FF;
+}
+
+.privilege {
+  background-color: #F0FDF4;
+}
+
+.additional {
+  background-color: #FEFCE8;
+}
+
+.loss {
+  background-color: #FDF2F8;
+}
+
+.service-2 {
+  background-color: #EEF2FF;
+  position: relative;
+}
+
+.service-arrow {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  z-index: 10;
+}
+
+.maternity {
+  background-color: #F0FDF4;
+  position: relative;
+}
+
+.maternity-arrow {
+  position: absolute;
+  top: 27px;
+  right: -5px;
+  z-index: 10;
+}
+
+/* Apply/Cancel Leave Styles */
+.apply-cancel-leave {
+  background-color: #F9FAFB;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  margin-top: 0px;
+}
+
+.apply-cancel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  
+}
+
+.apply-cancel-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.apply-cancel-header .leave-info-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+}
+
+.apply-cancel-header .leave-info-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #222;
+  font-weight: 400;
+}
+
+.apply-cancel-header .days-highlight {
+  color: #009951; /* green */
+  font-weight: 700;
+}
+
+.apply-cancel-header .info-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #7c3aed; /* purple-ish icon */
+  font-size: 16px;
+}
+
+.apply-cancel-header .info-text {
+  font-size: 12px;
+  color: #6b7280; /* gray text */
+  font-weight: 500;
+}
+
+.document-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.document-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.apply-cancel-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.leave-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  border-left: 4px solid #0078d4;
+}
+
+.leave-info-text {
+  flex: 1;
+}
+
+.leave-info-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  font-weight: 400;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.days-highlight {
+  color: #009951;
+  font-weight: 600;
+}
+
+.info-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #0078d4;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.info-button:hover {
+  background-color: rgba(0, 120, 212, 0.1);
+}
+
+.info-text {
+  font-weight: 500;
+}
+
+/* Form Styles */
+.leave-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 64px; /* space between the two groups */
+  align-items: start;
+  padding: 20px 0; /* match section vertical rhythm */
+}
+
+.form-row-pair .form-row {
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.form-row-pair .form-row label {
+  margin-bottom: 16px;
+}
+
+.form-row-pair .request-type .radio-options {
+  grid-template-columns: auto auto;
+  justify-content: flex-start;
+  gap: 60px;
+}
+
+.form-row-pair .day-type .radio-options {
+  grid-template-columns: auto auto auto;
+  justify-content: flex-start;
+  gap: 40px;
+}
+
+@media (max-width: 900px) {
+  .form-row-pair {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
+
+.form-row.request-type,
+.form-row.day-type {
+  padding-bottom: 0;
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.form-row label {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.radio-options {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.radio-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radio-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  background: transparent;
+}
+
+.radio-option .radio-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  pointer-events: none; /* icons shouldn't capture clicks */
+}
+
+.radio-option .radio-icon .icon-checked { display: none; }
+.radio-option .radio-icon .icon-unchecked { display: inline-block; }
+
+.radio-option input[type="radio"]:checked + .radio-icon .icon-checked { display: inline-block; }
+.radio-option input[type="radio"]:checked + .radio-icon .icon-unchecked { display: none; }
+
+.radio-option label {
+  display: inline-flex;
+  align-items: center;
+  line-height: 22px;
+  margin: 0;
+  color: #4B5563; /* default gray when not selected */
+}
+
+.radio-option input[type="radio"]:checked ~ label {
+  color: #111827; /* black when selected */
+  font-weight: 600; /* optional emphasis like screenshot */
+}
+
+.radio-option {
+  align-items: center;
+}
+
+/* Fine-tune alignment for radios inside the two-column pair row */
+.form-row-pair .radio-option {
+  align-items: center; /* ensure container centers icon + text */
+}
+
+.form-row-pair .radio-option label {
+  display: inline-flex;      /* allow vertical centering */
+  align-items: center;       /* center text to icon */
+  line-height: 22px;         /* match 22px radio icon height */
+  margin: 0;                 /* remove extra margins */
+  transform: translateY(1px); /* nudge label 1px down to align baseline */
+  color: #4B5563; /* default gray when not selected */
+  font-weight: normal; /* remove boldness for non-selected */
+}
+
+.form-row-pair .radio-option input[type="radio"]:checked ~ label {
+  color: #111827; /* black when selected */
+  font-weight: 600; /* optional emphasis like screenshot */
+}
+
+/* Three column layout for Leave Type, Sub Categories, Expected Delivery Date */
+.form-row.three-column {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  max-width: 900px; /* Reduced width - smaller than before */
+  width: fit-content; /* Don't stretch to full width */
+}
+
+.form-row.three-column > div {
+  flex: 1;
+  min-width: 463px; /* Smaller minimum width */
+  max-width: 250px; /* Smaller maximum width */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-row.three-column label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 6px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Date range row: match widths with three-column selects */
+.form-row.date-range {
+  display: grid;
+  grid-template-columns: 1fr 1fr max-content; /* From | To | compact Add button */
+  column-gap: 22px; /* exact gap between From and To */
+  align-items: end;
+  margin-bottom: 20px;
+ }
+
+.date-field {
+  width: 100%;
+  margin-right: 10px;
+}
+
+.date-input {
+  position: relative; /* icon anchor */
+  display: flex;
+  align-items: center;
+  width: 100%; /* remove any fixed widths */
+  background-color: rgb(255, 255, 255);
+  
+}
+
+
+.to-date-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+}
+
+.to-date-input input {
+  width: 100%;
+  padding: 10px 12px;
+  padding-right: 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #4b5563;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  
+}
+
+/* Give room for the calendar icon inside the field */
+.date-input input {
+  width: 100%;
+  padding: 10px 12px;
+  padding-right: 40px; /* space for calendar icon */
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Calendar icon positioned inside the input on the right */
+.form-row.date-range .calendar-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  font-size: 16px;
+  pointer-events: none;
+  width: 16px;   /* for <img> fallback */
+  height: 17px;
+}
+
+/* Select dropdown styles */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper select {
+  width: 100%;
+  padding: 10px 12px;
+  padding-right: 35px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  appearance: none;
+  -webkit-appearance: none;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.select-wrapper::after {
+  content: none;
+}
+
+.select-wrapper .select-caret {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Checkbox styles */
+.acknowledgment {
+  display: flex;
+  flex-direction: row; /* override .form-row column layout */
+  align-items: center; /* align checkbox + label on the same baseline */
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: nowrap; /* keep on one line */
+}
+
+.acknowledgment .checkbox-wrapper {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: #ffffff; /* white background behind the svg */
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.acknowledgment .checkbox-wrapper input[type="checkbox"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;               /* keep accessible, hide native */
+  cursor: pointer;
+  margin: 0;
+}
+
+.acknowledgment .checkbox-wrapper .checkbox-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;            /* show only when checked */
+}
+
+.acknowledgment .checkbox-wrapper input[type="checkbox"]:checked + .checkbox-svg {
+  display: block;
+}
+
+.acknowledgment input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #42A5F5; /* brand blue */
+  cursor: pointer;
+}
+
+.acknowledgment label {
+  display: inline-flex;          /* allow vertical centering */
+  align-items: center;           /* center text to checkbox height */
+  line-height: 18px;             /* match checkbox height */
+  margin: 0;                     /* remove extra margins */
+}
+
+.acknowledgment {
+  align-items: center;
+}
+
+/* File upload styles */
+.proof-section {
+  margin: 20px 0;
+}
+
+.proof-section label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.proof-section label .required-star {
+  color: #e53935; /* red */
+  margin-left: 2px;
+}
+
+.file-upload {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: auto; /* let the inner control size itself */
+  height: auto;
+}
+
+.upload-button {
+  flex: 0 0 auto;
+  display: block;
+  width: 415px;  /* border SVG intrinsic width */
+  height: 64px;  /* border SVG intrinsic height */
+  background-color: #ffffff; /* white fill behind border */
+  background-image: url('../svg_comps/uplodefileborder.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* fit exactly */
+  background-position: center;
+  position: relative; /* allow overlaying content */
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.upload-button::before {
+  content: "";
+  position: absolute;
+  left: 16px;              /* spacing from border */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;             /* slightly larger like mock */
+  height: 36px;
+  background-image: url('/uplode.png'); /* served from public/ */
+  background-repeat: no-repeat;
+  background-size: contain;
+  border-radius: 50%;
+  background-color: #F3F5F7; /* light gray circle backdrop */
+}
+
+.upload-button .choose-file {
+  position: absolute;
+  left: 72px;             /* to the right of the image */
+  top: 12px;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;       /* bold */
+  color: #111827;         /* near black */
+}
+
+.upload-button .no-file {
+  position: absolute;
+  left: 72px;
+  top: 36px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 500;
+  color: #98A2B3;         /* muted gray */
+}
+
+.upload-button .upload-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: 95px;   /* matches SVG */
+  height: 36px;  /* matches SVG */
+  border: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.upload-button .upload-btn:hover {
+  border-color: transparent;
+}
+
+/* Submit/Cancel SVG buttons: no extra borders/padding/background */
+.form-actions .cancel-btn,
+.form-actions .submit-btn {
+  display: inline-block;
+  width: 95px;   /* matches SVGs */
+  height: 36px;
+  border: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+/* Text input and textarea styles */
+.form-row input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-row textarea {
+  width: 1320px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  background-color: white;
+  min-height: 90px;
+  resize: none;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+.form-row.reason label,
+.form-row.comment label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Match Reason input height to Comment textarea */
+.form-row.reason input[type="text"] {
+  height: 100px; /* same as textarea min-height */
+  box-sizing: border-box; /* include padding and border in height */
+}
+
+/* Form actions */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.cancel-btn {
+  background-color: white;
+  color: #374151;
+  border: 2px solid #106ebe;
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.cancel-btn:hover {
+  background-color: #f9fafb;
+}
+
+.submit-btn {
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+/* View policies */
+.view-policies {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #545d6a;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 16px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.policy-icon {
+  font-size: 16px;
+}
+
+.view-policies:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .leave-balance-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .date-range {
+    flex-direction: column;
+  }
+  
+  .leave-types-container {
+    flex-direction: column;
+  }
+  
+  .leave-type {
+    min-width: 100%;
+  }
+}
+
+/* From Date visual (light gray) to match screenshot */
+.from-date .date-input input {
+  background-color: #ffffff;
+  border-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.to-date .date-input input {
+  background-color: #F5F5F5;
+  border-color: #e5e7eb;
+  color: #4b5563;
+  position: relative;
+  left: 0;
+}
+
+/* Keep calendar icon aligned within input height */
+.calendar-icon {
+  position: absolute;
+  right: 10px;
+  color: #6b7280;
+  font-size: 16px;
+  pointer-events: none;
+}
+
+/* Add to Leave list button: align to baseline and size to content */
+.form-row.date-range .add-to-leave-list {
+  align-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px; /* visually matches 40px input height */
+  border: 1px solid #cfe8ff;
+  border-radius: 6px;
+  color: #1083e8;
+  background: #fff;
+  margin-left: 10px;
+  margin-right: 280px;
+  position: relative;
+  left: -15px;
+}
+
+.form-row.date-range .add-to-leave-list .add-icon {
+  color: #1083e8;
+  font-size: 18px;
+}
+
+/* Align Day Type with Sub Categories by nudging it left */
+.form-row-pair .form-row.day-type {
+  position: relative;
+  left: -265px; /* tweak as needed to pixel-align */
+}
+
+@media (max-width: 900px) {
+  /* Avoid overflow on small screens */
+  .form-row-pair .form-row.day-type {
+    left: 0;
+  }
+}

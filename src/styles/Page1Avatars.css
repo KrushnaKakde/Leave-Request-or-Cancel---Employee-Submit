@@ -1,0 +1,44 @@
+/* Page1Avatars.css - Separate CSS for Page1 only */
+
+.page1 {
+  /* Three column layout for Leave Type, Sub Categories - Page1 specific */
+  .form-row.three-column {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    max-width: 900px; /* Reduced width - smaller than before */
+    width: fit-content; /* Don't stretch to full width */
+  }
+
+  .form-row.three-column > div {
+    flex: 1;
+    min-width: 463px; /* Smaller minimum width */
+    max-width: 250px; /* Smaller maximum width */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-row.three-column label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .date-input {
+    position: relative; /* icon anchor */
+    display: flex;
+    align-items: center;
+    width: 100%; /* remove any fixed widths */
+    height: 40px;
+  }
+  
+  /* Date field to-date - move 6px left */
+  .date-field.to-date {
+    position: relative;
+    left: -5px;
+  }
+}
